@@ -16,6 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `categories`
+--
+
+DROP TABLE IF EXISTS `categories`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `categories` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `categorie_name` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `categories`
+--
+
+LOCK TABLES `categories` WRITE;
+/*!40000 ALTER TABLE `categories` DISABLE KEYS */;
+/*!40000 ALTER TABLE `categories` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `customers`
 --
 
@@ -75,6 +99,58 @@ LOCK TABLES `orders` WRITE;
 INSERT INTO `orders` VALUES (1,'2023-08-01 10:00:00','2023-08-02 15:00:00',1450,1),(2,'2023-08-02 11:30:00','2023-08-03 14:45:00',200,2),(3,'2023-08-03 09:15:00','2023-08-04 12:30:00',50,3),(4,'2023-08-04 13:00:00','2023-08-05 16:15:00',30320,4),(5,'2023-08-05 14:30:00','2023-08-06 18:30:00',100,5),(6,'2023-08-06 10:45:00','2023-08-07 13:45:00',725,6),(7,'2023-08-07 12:00:00','2023-08-08 15:15:00',2240,7),(8,'2023-08-08 08:15:00','2023-08-09 11:30:00',180,8),(9,'2023-08-09 14:00:00','2023-08-10 17:30:00',9054,9),(10,'2023-08-10 09:30:00','2023-08-11 12:45:00',120,10),(11,'2023-08-11 11:45:00','2023-08-12 14:30:00',2350,11),(12,'2023-08-12 13:30:00','2023-08-13 16:15:00',7450,12),(13,'2023-08-13 15:00:00','2023-08-14 18:30:00',180,13),(14,'2023-08-14 10:15:00','2023-08-15 13:45:00',160,14),(15,'2023-08-15 12:30:00','2023-08-16 15:15:00',9540,15),(16,'2023-08-16 08:45:00','2023-08-17 11:30:00',200,16),(17,'2023-08-17 14:15:00','2023-08-18 17:30:00',1310,17),(18,'2023-08-18 09:00:00','2023-08-19 12:45:00',130,18),(19,'2023-08-19 10:45:00','2023-08-20 13:30:00',750,19),(20,'2023-08-20 13:30:00','2023-08-21 16:15:00',2050,20),(21,'2023-08-21 10:00:00','2023-08-22 15:00:00',130,21),(22,'2023-08-22 11:30:00','2023-08-23 14:45:00',180,22),(23,'2023-08-23 09:15:00','2023-08-24 12:30:00',90,23),(24,'2023-08-24 13:00:00','2023-08-25 16:15:00',300,24),(25,'2023-08-25 14:30:00','2023-08-26 18:30:00',120,5),(26,'2023-08-26 10:45:00','2023-08-27 13:45:00',100,8),(27,'2023-08-27 12:00:00','2023-08-28 15:15:00',220,6),(28,'2023-08-28 08:15:00','2023-08-29 11:30:00',140,6),(29,'2023-08-29 14:00:00','2023-08-30 17:30:00',160,2),(30,'2023-08-30 09:30:00','2023-08-31 12:45:00',110,20);
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `products`
+--
+
+DROP TABLE IF EXISTS `products`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `products` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `product_name` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `price` float NOT NULL,
+  `categorie` varchar(255) DEFAULT NULL,
+  `stock` int NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `products`
+--
+
+LOCK TABLES `products` WRITE;
+/*!40000 ALTER TABLE `products` DISABLE KEYS */;
+/*!40000 ALTER TABLE `products` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `users` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `user_name` varchar(255) DEFAULT NULL,
+  `psw` varchar(10) DEFAULT NULL,
+  `role` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -85,4 +161,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-08 21:57:40
+-- Dump completed on 2023-09-13  9:47:32
